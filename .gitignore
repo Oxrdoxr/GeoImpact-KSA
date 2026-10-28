@@ -1,0 +1,21 @@
+# Environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Raw scrape contains member-level personal data; never publish it.
+data_clean/nawa_raw_hierarchy.jsonl
+
+# Intermediate workbook includes a members sheet with personal data.
+data_clean/interim/
+
+# Legacy code and outputs kept locally for reference only.
+archive_old/
+
+# Temporary copy used to inspect the hackathon rubric.
+report/criteria-review.pdf

@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>GeoImpact KSA — التقرير التنفيذي</title><style>
+body { font-family: Tajawal, 'Segoe UI', Tahoma, sans-serif; max-width: 900px; margin: 32px auto; padding: 0 20px; color: #14263a; line-height: 1.8; }
+h1 { color: #0f2a43; border-bottom: 4px solid #c9a24a; padding-bottom: 8px; }
+h2 { color: #0f2a43; margin-top: 32px; } h3 { color: #1b4468; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92rem; }
+th { background: #0f2a43; color: #fff; } th, td { padding: 6px 10px; border: 1px solid #dbe3ec; text-align: right; }
+blockquote { margin: 0; padding: 6px 14px; border-inline-start: 4px solid #c9a24a; background: #f3f6fa; color: #5b6b7c; }
+figure { margin: 16px 0; page-break-inside: avoid; } img { max-width: 100%; }
+code { background: #f3f6fa; padding: 1px 5px; border-radius: 4px; direction: ltr; unicode-bidi: embed; }
+</style></head><body><h1>GeoImpact KSA — التقرير التنفيذي</h1>
+<blockquote>أُنشئ تلقائيًا من مخرجات خط التحليل بتاريخ 2026-10-28 08:56.</blockquote>
+<h2>1. الفكرة</h2>
+<p>لوحة قرار تفاعلية وخط تحليل قابل لإعادة التشغيل يقارنان التوزيع الجغرافي للجهات غير الربحية المسجلة (سجلات منصة نوى) مع حصة كل منطقة من سكان المملكة، لكل مجال من مجالات العمل، لرصد فجوات التوزيع وترتيبها بما يدعم توجيه التأسيس والدعم نحو المناطق والمجالات الأشد نقصًا.</p>
+<p><strong>السؤال:</strong> هل ينمو القطاع الثالث بتوازن بين مناطق المملكة ومجالات العمل، وكم جهة تحتاجها كل منطقة لتطابق حصتها من السكان؟</p>
+<h2>2. لماذا هذه الفكرة</h2>
+<ul><li>غالب الجهات غير الربحية تخدم نطاق منطقتها؛ فإذا كان مجال ما شبه غائب في منطقة، فقد يضطر سكانها إلى السفر بحثًا عن الخدمة أو الاستغناء عنها، لذا يهمّ قياس التنوع المحلي داخل القطاع لا العدد الوطني وحده.</li><li>تستهدف <a href="https://www.vision2030.gov.sa/ar/explore/strategies/national-center-for-non-profit-sector-strategy">استراتيجية المركز الوطني لتنمية القطاع غير الربحي</a> ضمن رؤية 2030 رفع مساهمة القطاع إلى 5% من الناتج المحلي؛ وهو مستهدف وطني يستدعي نموًا متوازنًا بين المناطق والمجالات، ويُستخدم هنا كسياق لا كهدف عددي لكل منطقة.</li><li>أمثلة حقيقية من مخرجات هذا المشروع (أدنى نسب التغطية ضمن فئة «عجز حرج»):</li><li><strong>تبوك — الروابط المهنية:</strong> 1 جهة مسجلة مقابل حصة عادلة تقديرية 6.5 جهة (تغطية 15%).</li><li><strong>جازان — دعم العمل الخيري:</strong> 5 جهة مسجلة مقابل حصة عادلة تقديرية 21.6 جهة (تغطية 23%).</li><li><strong>نجران — الصناديق العائلية:</strong> 7 جهة مسجلة مقابل حصة عادلة تقديرية 22.9 جهة (تغطية 30%).</li><li>هذه الفجوات إشارات تستحق التحقق الميداني (هل الخدمة غائبة فعلًا أم تغطيها جهات بديلة؟)، وليست إثباتًا لغياب الخدمة — كما تفصّله «حدود القراءة».</li></ul>
+<h2>3. البيانات وطريقة التعامل معها</h2>
+<h3>المصادر</h3>
+<ul><li><strong>سجلات الجهات:</strong> منصة نوى بعد التنظيف في دفتر <code>notebooks/cleaning_data.ipynb</code>، والناتج مصنف <code>Saudi_Charities_Governance_Final_2026.xlsx</code>.</li><li><strong>السكان:</strong> الهيئة العامة للإحصاء، <a href="https://www.stats.gov.sa/ar/w/%D8%B9%D8%B1%D8%B6-%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B7%D9%82-%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9?category=127436&amp;tab=436327">لوحة معلومات المناطق الإدارية</a>، ضمن إحصاءات تعداد السعودية 2022. القيم المستخدمة في الملف مقربة إلى 0.1 مليون.</li></ul>
+<h3>خطوات التعامل والتنظيف</h3>
+<ul><li>إسقاط الأعمدة الفارغة أو الحساسة (العنوان التفصيلي، الجوال، البريد الإلكتروني) وتطهير النصوص من الرموز غير المرئية والمسافات الزائدة.</li><li>اعتماد <code>unifiedNumber700</code> مفتاحًا أساسيًا وحذف عمود <code>id</code> التالف؛ 8,012 سجلًا بمعرّف موحد فريد من أصل 8,012.</li><li>توحيد أسماء المناطق (إضافة «منطقة» للأسماء المجردة، ومعالجة خاصة لـ«المنطقة الشرقية») لمطابقة جدول السكان.</li><li>توحيد مسميات جهات الإشراف وإسناد القيم المفقودة بمسمى نظامي صريح بدل التخمين؛ وإشراف الصناديق العائلية مشتق من نوع الكيان ومُوسوم بذلك في البيانات (<code>supervisor_source</code>, <code>category_source</code>).</li><li><strong>الخصوصية:</strong> تفكيك حقل الأعضاء ثم الاحتفاظ بعددهم فقط (<code>members_count</code>)؛ لا تدخل بيانات الأفراد في أي مخرج.</li><li><strong>المستبعد من المقارنة:</strong> 22 جهة غير مصنفة، إضافة إلى سجلات «تصنيف أساسي أخرى».</li><li><strong>حالة فحص الجودة:</strong> <code>PASSED_WITH_WARNINGS</code>.</li></ul>
+<h3>حجم البيانات وتصنيفها</h3>
+<ul><li><strong>الحجم:</strong> 8,012 سجلًا موزعة على 13 منطقة إدارية.</li><li><strong>أنواع الكيانات:</strong> جمعية أهلية: 6,108، صندوق عائلي: 1,223، مؤسسة أهلية: 681.</li><li><strong>التصنيف:</strong> 7,990 جهة مصنفة في 11 مجالًا، والصناديق العائلية مجال مستقل.</li></ul>
+<h3>سياق القطاع من التقرير السنوي 2025</h3>
+<ul><li>يذكر التقرير السنوي للمركز الوطني لتنمية القطاع غير الربحي أن الإنفاق التنموي بلغ <strong>76.2%</strong> من إجمالي إنفاق القطاع في <strong>2024</strong>، مقابل <strong>75.3%</strong> في <strong>2023</strong>.</li><li>تجاوزت عمليات الفحص والمراجعة للمنظمات غير الربحية <strong>2,300 عملية</strong> في <strong>2025</strong>، ويعرض التقرير نموًا بنسبة <strong>37%</strong> مقارنة بـ <strong>1,670 عملية</strong> في <strong>2024</strong>.</li><li>هذه مؤشرات وطنية مستقلة عن سجلات نوى؛ تُعرض للسياق فقط، ولا تدخل في حساب الحصة العادلة أو الفجوة، ولا تثبت توزيع الجهات أو الطلب أو جودة الخدمات. المصدر: <a href="https://ncnp.gov.sa/ar/reports">التقرير السنوي 2025 للمركز الوطني لتنمية القطاع غير الربحي</a>، ص 18.</li></ul>
+<h2>4. منهجية التحليل</h2>
+<p>1. <strong>التحقق:</strong> معرّف فريد لكل سجل، وأعمدة مطلوبة، وتوحيد أسماء المناطق مع جدول السكان (تعداد 2022).</p>
+<p>2. <strong>الحصة العادلة</strong> لكل منطقة ومجال: <code>الحصة العادلة = إجمالي جهات المجال وطنيًا × (سكان المنطقة ÷ إجمالي السكان)</code>.</p>
+<p>3. <strong>الفجوة:</strong> <code>الفجوة = الحصة العادلة − المسجل فعليًا</code>، وعدد الجهات المطلوبة هو الفجوة مقرّبة وغير سالبة.</p>
+<p>4. <strong>نسبة التغطية</strong> = المسجل ÷ الحصة العادلة، وتُصنَّف بحدود 0.5 و0.85 و1.25:</p>
+<table><thead><tr><th>الفئة</th><th>نسبة التغطية</th></tr></thead><tbody>
+<tr><td>عجز حرج</td><td>أقل من 50% من الحصة العادلة</td></tr>
+<tr><td>فجوة متوسطة</td><td>من 50% إلى أقل من 85%</td></tr>
+<tr><td>متوازن</td><td>من 85% إلى 125%</td></tr>
+<tr><td>تشبع</td><td>أعلى من 125%</td></tr>
+</tbody></table>
+<p>5. <strong>نسبة سدّ المنطقة</strong> تحسب كل مجال حتى حدّ حصته فقط، فلا يُخفي فائضٌ في مجال نقصًا في آخر. وبها تُرتَّب لوحة الأكثر حرجًا من الأسوأ إلى الأفضل.</p>
+<h2>5. النتائج</h2>
+<ul><li>المنطقة الأكثر حرجًا هي <strong>المنطقة الشرقية</strong>: تسدّ 54% من حصتها العادلة وتحتاج <strong>586</strong> جهة، وأشد مجالاتها نقصًا «الدعوة والتعليم الديني».</li><li>إجمالي الجهات المطلوبة لبلوغ التوازن في كل المناطق: <strong>1,595</strong> جهة. عدد المناطق في العجز الحرج: <strong>0</strong>، ودون التوازن (حرجة أو متوسطة): <strong>5</strong>.</li><li>أكبر منطقتين تسجيلًا (الرياض، مكة المكرمة) تضمان 46% من الجهات مقابل 52% من السكان.</li></ul>
+<h3>المناطق الأكثر حرجًا</h3>
+<table><thead><tr><th>#</th><th>المنطقة</th><th>نسبة سدّ الحصة العادلة</th><th>جهات مطلوبة</th><th>مجالات حرجة</th><th>الأشد نقصًا</th></tr></thead><tbody>
+<tr><td>1</td><td>المنطقة الشرقية</td><td>54%</td><td>586</td><td>5</td><td>الدعوة والتعليم الديني</td></tr>
+<tr><td>2</td><td>تبوك</td><td>68%</td><td>70</td><td>4</td><td>الصناديق العائلية</td></tr>
+<tr><td>3</td><td>مكة المكرمة</td><td>79%</td><td>430</td><td>2</td><td>الصناديق العائلية</td></tr>
+<tr><td>4</td><td>الرياض</td><td>84%</td><td>345</td><td>0</td><td>الخدمات الاجتماعية</td></tr>
+<tr><td>5</td><td>نجران</td><td>84%</td><td>23</td><td>2</td><td>الصناديق العائلية</td></tr>
+</tbody></table>
+<h3>المجالات</h3>
+<table><thead><tr><th>المجال</th><th>جهات وطنيًا</th><th>جهات مطلوبة</th><th>مناطق في العجز الحرج</th></tr></thead><tbody>
+<tr><td>الخدمات الاجتماعية</td><td>1,746</td><td>329</td><td>0</td></tr>
+<tr><td>الصناديق العائلية</td><td>1,223</td><td>277</td><td>4</td></tr>
+<tr><td>الدعوة والتعليم الديني</td><td>1,220</td><td>243</td><td>1</td></tr>
+<tr><td>التنمية والإسكان</td><td>1,182</td><td>256</td><td>0</td></tr>
+<tr><td>الصحة</td><td>532</td><td>73</td><td>1</td></tr>
+<tr><td>دعم العمل الخيري</td><td>494</td><td>93</td><td>2</td></tr>
+<tr><td>التعليم والأبحاث</td><td>439</td><td>72</td><td>2</td></tr>
+<tr><td>الثقافة والترفيه</td><td>410</td><td>80</td><td>1</td></tr>
+<tr><td>البيئة</td><td>391</td><td>65</td><td>1</td></tr>
+<tr><td>الروابط المهنية</td><td>231</td><td>88</td><td>3</td></tr>
+<tr><td>التأييد والمؤازرة</td><td>119</td><td>19</td><td>0</td></tr>
+</tbody></table>
+<h2>6. الرسوم البيانية</h2>
+<figure><img src="../outputs/figures/reverse_leaderboard.png" alt="reverse_leaderboard"></figure>
+<figure><img src="../outputs/figures/deficit_heatmap.png" alt="deficit_heatmap"></figure>
+<figure><img src="../outputs/figures/shares_vs_population.png" alt="shares_vs_population"></figure>
+<figure><img src="../outputs/figures/worst_region_domains.png" alt="worst_region_domains"></figure>
+<h2>7. المخرجات</h2>
+<table><thead><tr><th>الملف</th><th>المحتوى</th></tr></thead><tbody>
+<tr><td><code>outputs/dashboard_data.json</code></td><td>بيانات اللوحة المحسوبة مسبقًا</td></tr>
+<tr><td><code>outputs/entities.json</code></td><td>فهرس بحث الكيانات بلا بيانات شخصية</td></tr>
+<tr><td><code>outputs/population_coverage_analysis.csv</code></td><td>المقارنة بالحصة السكانية لكل منطقة ومجال</td></tr>
+<tr><td><code>outputs/gaps_analysis_report.csv</code></td><td>مصفوفة التغطية الوصفية</td></tr>
+<tr><td><code>outputs/data_quality_report.json</code></td><td>تقرير جودة البيانات</td></tr>
+<tr><td><code>outputs/figures/</code></td><td>نسخ ثابتة من رسوم اللوحة</td></tr>
+<tr><td><code>dashboard/</code></td><td>لوحة القرار التفاعلية</td></tr>
+</tbody></table>
+<h2>8. حدود القراءة</h2>
+<ul><li>المؤشر يقارن <strong>التسجيل</strong> بحصة السكان؛ لا يثبت وجود طلب أو غياب خدمة، ولا يقيس جودة الخدمة.</li><li>أرقام السكان مقرّبة إلى 0.1 مليون وتتأثر بها المناطق الصغيرة؛ مصدرها موضح في قسم البيانات.</li><li>الصناديق العائلية وإشرافها مبنيان على قاعدة مشتقة من نوع الكيان، وليستا حقلًا مصدريًا.</li><li>مناطق صغيرة السكان قد تُظهر عجزًا بأرقام صغيرة؛ يُفضَّل قراءتها مع نسبة السدّ لا العدد وحده.</li></ul></body></html>

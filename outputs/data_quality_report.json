@@ -1,0 +1,13 @@
+{
+  "total_records": 8012,
+  "unique_keys": 8012,
+  "regions": 13,
+  "missing_main_category": 22,
+  "missing_supervisor": 22,
+  "records_by_type": {
+    "جمعية أهلية": 6108,
+    "صندوق عائلي": 1223,
+    "مؤسسة أهلية": 681
+  },
+  "status": "PASSED_WITH_WARNINGS"
+}
