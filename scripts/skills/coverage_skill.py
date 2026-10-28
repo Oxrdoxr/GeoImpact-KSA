@@ -16,7 +16,7 @@ TIER_RANGES = {
     "yellow": "من 50% إلى أقل من 85%",
     "green": "من 85% إلى 125%",
     "purple": "أعلى من 125%",
-}
+} 
 
 
 TIER_THRESHOLDS = (0.5, 0.85, 1.25)

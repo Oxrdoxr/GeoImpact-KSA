@@ -113,4 +113,4 @@ def load_master(path: Union[str, Path]) -> pd.DataFrame:
     path = Path(path)
     if not path.is_file():
         raise FileNotFoundError(f"Workbook not found: {path}")
-    return pd.read_excel(path, sheet_name=MASTER_SHEET)
+    return pd.read_excel(path, sheet_name=MASTER_SHEET) 
